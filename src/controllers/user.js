@@ -10,10 +10,9 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { firstName, lastName, password } = req.body;
-    const newUser = await userServices.createUser({ firstName, lastName, password });
+    const newUser = await userServices.createUser(req.body);
 
-    return res.status(201).json({ user: newUser });
+    return res.status(201).json({ user: newUser});
 });
 
 router.get('/:userId', async (req, res) => {
