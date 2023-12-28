@@ -1,9 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+require('express-async-errors');
+
 const { connectDB, sequelize } = require('./config/db');
 const config = require('./config/config.json');
 const controllers = require('./src/controllers');
+const errorHandler = require('./src/middleware/errorHandler');
 
 const app = express();
 const port = process.env.PORT || config.port;
@@ -16,7 +19,9 @@ app.use(
         credentials: true,
     })
 );
+
 app.use(controllers);
+app.use(errorHandler);
 
 app.get('/', (req, res) => {
     return res.send('Hello world').status(200);

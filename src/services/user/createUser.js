@@ -16,8 +16,7 @@ const createUser = async (user) => {
 
     if (existingUser) {
         const error = {
-            name: 'U001',
-            message: 'Usuario existente'
+            code: 'U001'
         };
 
         throw error;
