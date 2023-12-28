@@ -6,7 +6,7 @@ require('express-async-errors');
 const { connectDB, sequelize } = require('./config/db');
 const config = require('./config/config.json');
 const controllers = require('./src/controllers');
-const errorHandler = require('./src/middleware/errorHandler');
+const errorHandler = require('./src/middlewares/errorHandler');
 
 const app = express();
 const port = process.env.PORT || config.port;
