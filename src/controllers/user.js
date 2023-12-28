@@ -3,12 +3,6 @@ const userServices = require('../services/user');
 
 const router = Router();
 
-router.get('/', async (req, res) => {
-    const users = await userServices.getUsers();
-
-    return res.status(200).json({ users });
-});
-
 router.post('/', async (req, res) => {
     const newUser = await userServices.createUser(req.body);
 
@@ -20,6 +14,14 @@ router.post('/login', async (req, res) => {
     const token = await userServices.userLogin(email, password);
 
     return res.status(200).json({ token });
+});
+
+// delete in future
+
+router.get('/', async (req, res) => {
+    const users = await userServices.getUsers();
+
+    return res.status(200).json({ users });
 });
 
 router.get('/:userId', async (req, res) => {
