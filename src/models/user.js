@@ -1,4 +1,6 @@
 const { DataTypes, sequelize } = require('../../config/db');
+const UserTypes = require('./enums/UserTypes');
+const userEnum = Object.keys(UserTypes).map(type => type);
 
 const User = sequelize.define('User', {
   id: {
@@ -8,16 +10,37 @@ const User = sequelize.define('User', {
     type: DataTypes.INTEGER
   },
   firstName: {
+    allowNull: false,
+    field: 'first_name',
     type: DataTypes.STRING,
-    allowNull: false
   },
   lastName: {
+    allowNull: false,
     type: DataTypes.STRING,
-    allowNull: false
+    field: 'last_name',
+  },
+  secondLastName: {
+    allowNull: false,
+    type: DataTypes.STRING,
+    field: 'second_last_name',
+  },
+  email: {
+    allowNull: false,
+    type: DataTypes.STRING,
+    unique: true,
   },
   password: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  phone: {
+    allowNull: false,
+    type: DataTypes.STRING,
+  },
+  type: {
+    defaultValue: UserTypes.USER,
+    type: DataTypes.ENUM,
+    values: userEnum,
   },
   createdAt: {
     type: DataTypes.DATE,

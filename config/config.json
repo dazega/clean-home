@@ -15,5 +15,7 @@
       "dialect": "postgres"
     }
   },
-  "port": 8000
+  "port": 8000,
+  "saltRounds": 10,
+  "jwtSecret": "JWT_PASSPHRASE"
 }
