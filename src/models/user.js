@@ -56,5 +56,19 @@ const User = sequelize.define('User', {
   // Other model options go here
 });
 
+User.prototype.getRaw = function () {
+  return {
+    id: this.id,
+    firstName: this.firstName,
+    lastName: this.lastName,
+    secondLastName: this.secondLastName,
+    email: this.email,
+    phone: this.phone,
+    type: this.type,
+    createdAt: this.createdAt,
+    updatedAt: this.updatedAt, 
+  }
+};
+
 
 module.exports = User;

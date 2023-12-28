@@ -6,7 +6,7 @@ const router = Router();
 router.post('/', async (req, res) => {
     const newUser = await userServices.createUser(req.body);
 
-    return res.status(201).json({ user: newUser});
+    return res.status(201).json({ user: newUser.getRaw()});
 });
 
 router.post('/login', async (req, res) => {
