@@ -13,8 +13,6 @@ const auth = (req, res, next) => {
         const decoded = jwt.verify(token, jwtSecret);
 
         req.user = decoded;
-
-        console.log(decoded);
         next();
     } catch (err) {
         console.log('Error en middleware auth', err);

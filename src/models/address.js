@@ -26,6 +26,7 @@ const Address = sequelize.define('Address', {
         type: DataTypes.STRING,
     },
     intNumber: {
+        defaultValue: '',
         allowNull: true,
         field: 'int_number',
         type: DataTypes.STRING,
@@ -55,5 +56,18 @@ const Address = sequelize.define('Address', {
 }, {
     // Other model options go here
 });
+
+Address.prototype.getRaw = function () {
+    return {
+        id: this.id,
+        street: this.street,
+        neighborhood: this.neighborhood,
+        zip: this.zip,
+        extNumber: this.extNumber,
+        intNumber: this.intNumber,
+        municipality: this.municipality,
+        state: this.state,
+    }
+};
 
 module.exports = Address;
