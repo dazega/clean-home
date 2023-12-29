@@ -70,5 +70,4 @@ User.prototype.getRaw = function () {
   }
 };
 
-
 module.exports = User;
