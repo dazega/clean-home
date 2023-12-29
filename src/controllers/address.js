@@ -27,4 +27,13 @@ router.get('/', auth, async (req, res) => {
     return res.status(200).json({ address: addresses });
 });
 
+router.delete('/:addressId', auth, async (req, res) => {
+    const { user } = req;
+    const { addressId } = req.params;
+
+    await addressService.deleteAddress(addressId, user);
+
+    return res.status(200).json({ status: 'ok' });
+});
+
 module.exports = router;
