@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const jwtSecret = process.env.JWT_SECRET || require('../../config/config.json').jwtSecret;
 
 const auth = (req, res, next) => {
-    const token = req.headers['authorization']?.replace('bearer ', '');
+    const token = req.headers['authorization']?.replace('Bearer ', '').replace('bearer ', '');
 
     if (!token) {
         throw {
