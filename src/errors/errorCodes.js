@@ -22,6 +22,10 @@ const errors = {
         status: 400,
         message: 'Email or password incorrect'
     },
+    'AD001': {
+        status: 404,
+        message: 'Addres not found'
+    }
 };
 
 module.exports = errors;

@@ -10,4 +10,12 @@ router.post('/', auth, async (req, res) => {
     return res.status(200).json({ address: address.getRaw() });
 });
 
+router.get('/:addressId', auth, async (req, res) => {
+    const { addressId } = req.params;
+    const { user } = req;
+    const address = await addressService.getAddressById(addressId, user);
+
+    return res.status(200).json({ address: address.getRaw() });
+});
+
 module.exports = router;
