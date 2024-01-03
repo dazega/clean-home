@@ -36,4 +36,12 @@ router.delete('/:addressId', auth, async (req, res) => {
     return res.status(200).json({ status: 'ok' });
 });
 
+router.put('/:addresId', auth, async (req, res) => {
+    const { addresId } = req.params;
+    const { user } = req;
+    const address = await addressService.updateAddress(addresId, req.body, user);
+
+    return res.status(200).json({ address: address.getRaw() });
+});
+
 module.exports = router;
