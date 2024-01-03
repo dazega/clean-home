@@ -1,6 +1,15 @@
 // U: Errores de modelo usuario
+// A: Errores de autenticacion
 
 const errors = {
+    'A001': {
+        status: 400,
+        message: 'Invalid token'
+    },
+    "A002": {
+        status: 403,
+        message: 'Access deneid.'
+    },
     'U001': {
         status: 400,
         message: 'User already exist'
@@ -12,6 +21,10 @@ const errors = {
     'U003': {
         status: 400,
         message: 'Email or password incorrect'
+    },
+    'AD001': {
+        status: 404,
+        message: 'Addres not found'
     }
 };
 

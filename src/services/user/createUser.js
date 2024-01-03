@@ -1,5 +1,5 @@
 const UserTypes = require('../../models/enums/UserTypes');
-const User = require('../../models/user');
+const { User } = require('../../models');
 const cryptPassword = require('../../utils/cryptPassword');
 
 const createUser = async (user) => {
