@@ -5,7 +5,7 @@ const Profile = require('./profile');
 User.hasMany(Address, {
     foreignKey: 'user_id'
 });
-User.hasMany(Profile, {
+User.hasOne(Profile, {
     foreignKey: 'user_id'
 });
 
