@@ -1,10 +1,13 @@
 const { Router } = require('express');
 const userServices = require('../services/user');
+const profileServices = require('../services/profile');
 
 const router = Router();
 
 router.post('/', async (req, res) => {
     const newUser = await userServices.createUser(req.body);
+    await profileServices.createProfile(`${newUser.firstName} ${newUser.lastName} ${newUser.secondLastName}`.trim(),
+        '', 5, newUser.id);
 
     return res.status(201).json({ user: newUser.getRaw()});
 });
